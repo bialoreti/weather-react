@@ -34,9 +34,24 @@ export default function Weather(props) {
       <input type="submit" value="search" />
     </form>
   );
-  return (
+  if (loaded) {
+    return (
     <div>
         {form}
-    </div>
-  )
+        <ul>
+          <li>Temperature: {Math.round(data.temperature)}ºC</li>
+          <li>Wind: {Math.round(data.wind)} km/h</li>
+          <li>Humidity: {Math.round(data.humidity)}%</li>
+          <li>
+            <img src={data.icon} alt="temp-icon" />
+          </li>
+        </ul>
+        </div>
+        );
+
+  } else {
+    return form;
+  }
+ 
+  
 }
