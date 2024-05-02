@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import axios from "axios";
+import Weather from "./Weather";
 
 function App() {
   return (
@@ -10,14 +10,7 @@ function App() {
         <p>
           Weather app
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello!
-        </a>
+          <Weather />
       </header>
     </div>
   );
