@@ -10,9 +10,9 @@ function App() {
         </p>
           <Weather />
       </header>
-      <footer>
+      <p>
         <a href="https://github.com/bialoreti/weather-react">Open-source code</a>, by Beatriz loreti
-        </footer>
+        </p>
     </div>
   );
 }
