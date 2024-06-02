@@ -6,13 +6,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Weather app</p>
-        <Weather />
-        <p>
-          
-            Open-source code
-          
-          , by Beatriz loreti
-        </p>
+        <div className="container">
+          <Weather />
+        </div>
       </header>
     </div>
   );
