@@ -1,5 +1,6 @@
 import './App.css';
 import Weather from "./Weather";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <a href="https://github.com/bialoreti/weather-react">
           Open source code
         </a>
-        , by Beatriz Loreti
+          by Beatriz Loreti
       </footer>
     </div>
   );
