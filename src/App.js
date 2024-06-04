@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <div className="container-fluid shadow-sm">
         <header className="App-header">
-          <Weather />
+          <Weather defaultCity="Lisboa" />
         </header>
         <footer>
           <a href="https://github.com/bialoreti/weather-react">
