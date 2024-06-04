@@ -4,12 +4,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
-    <div className="App">
+    <body>
+      <div className="container-fluid">
       <header className="App-header">
-        <p>Weather app</p>
-        <div className="container">
           <Weather />
-        </div>
       </header>
       <footer>
         <a href="https://github.com/bialoreti/weather-react">
@@ -17,7 +15,8 @@ function App() {
         </a>
           by Beatriz Loreti
       </footer>
-    </div>
+      </div>
+    </body>
   );
 }
 
