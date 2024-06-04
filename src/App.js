@@ -4,19 +4,19 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
-    <body>
-      <div className="container-fluid">
-      <header className="App-header">
+    <div className="App">
+      <div className="container-fluid shadow-sm">
+        <header className="App-header">
           <Weather />
-      </header>
-      <footer>
-        <a href="https://github.com/bialoreti/weather-react">
-          Open source code
-        </a>
-          by Beatriz Loreti
-      </footer>
+        </header>
+        <footer>
+          <a href="https://github.com/bialoreti/weather-react">
+            Open source code
+          </a>
+          , by Beatriz Loreti
+        </footer>
       </div>
-    </body>
+    </div>
   );
 }
 
