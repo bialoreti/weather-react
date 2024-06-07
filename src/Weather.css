@@ -1,14 +1,40 @@
-.Search {
+.form-control {
     border-radius:5px;
-    border-color: transparent;
+    border-color: white;
     background-color: transparent;
-    color: white;
-    border-color: transparent;
+    color: gray;
+    
 }
-.Button {
+input.btn {
     border-radius:5px;
-    color: #8D87F9;
-    background-color: white;
+    color: white;
+    background-color: transparent;
     border-color: white;
     
+    
+}
+h1 {
+    padding: 20px;
+    align-items: center;
+    
+}
+.weather-data {
+    display:flex;
+    justify-content: center;
+}
+
+.temperature {
+    font-size: 66px;
+    
+}
+.unit {
+    font-size: 16px;
+    position: relative;
+    top: -32px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
 }

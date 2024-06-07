@@ -1,23 +1,28 @@
-import './App.css';
+import React from "react";
 import Weather from "./Weather";
+import Forecast from "./Forecast";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <div className="container-fluid shadow-sm">
-        <header className="App-header">
+        <header>
           <Weather defaultCity="Lisboa" />
         </header>
-        <footer>
-          <a href="https://github.com/bialoreti/weather-react">
-            Open source code
-          </a>
-          , by Beatriz Loreti
-        </footer>
       </div>
+      <div className="container-fluid shadow-sm">
+        <Forecast />
+      </div>
+      <footer>
+        <a href="https://github.com/bialoreti/weather-react">
+          Open source code
+        </a>
+        , by Beatriz Loreti
+      </footer>
     </div>
   );
 }
 
-export default App;
+

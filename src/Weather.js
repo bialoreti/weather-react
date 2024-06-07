@@ -1,18 +1,23 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Weather(props) {
-  const [city, setCity] = useState("");
-  const [data, setData] = useState({});
+  const [city, setCity] = useState(props.defaultCity);
+  const [data, setData] = useState({ready: false});
   const [loaded, setLoaded] = useState(false);
 
   function displayWeather(response) {
     setLoaded(true);
     setData({
+      city: response.data.name,
       temperature: response.data.main.temp,
+      date: response.data.dt * 1000,
+      description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
 
@@ -30,25 +35,59 @@ export default function Weather(props) {
 
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <input className="Search" type="search" placeholder="type a city..." onChange={updateCity} />
-      <input className="Button" type="submit" value="search" />
-    </form>
+    <div className="Weather">
+      <form onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-9">
+            <input
+              type="search"
+              placeholder="type a city..."
+              className="form-control"
+              autoFocus="on"
+              autoComplete="on"
+              onChange={updateCity}
+            />
+          </div>
+          <div className="col-3">
+            <input
+              type="submit"
+              value="Search"
+              className="btn w-100"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
   );
   if (loaded) {
     return (
-    <div className="Weather">
+      <div className="Weather">
         {form}
-        <ul>
-          <li>Temperature: {Math.round(data.temperature)}ºC</li>
-          <li>Wind: {Math.round(data.wind)} km/h</li>
-          <li>Humidity: {Math.round(data.humidity)}%</li>
-          <li>
-            <img src={data.icon} alt="temp-icon" />
-          </li>
-        </ul>
+        <h1>Lisboa</h1>
+        <div className="weather-data">
+          <img src={data.icon} alt="temp-icon" />
+          <h2>
+            <strong className="temperature">
+              {Math.round(data.temperature)}
+            </strong>
+            <strong className="unit">ºC</strong>
+          </h2>
         </div>
-        );
+        <ul>
+          <li>Friday, 17:00</li>
+          <li>{data.description}</li>
+        </ul>
+        <div className="row">
+          <div className="col">
+            <ul className="weather-details">
+              <li>Precipitation: {Math.round(data.precipitation)}</li>
+              <li>Wind: {Math.round(data.wind)} km/h</li>
+              <li>Humidity: {Math.round(data.humidity)}%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
 
   } else {
     return form;
