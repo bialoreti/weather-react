@@ -18,7 +18,6 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
 
@@ -64,7 +63,7 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         {form}
-        <h1>Lisboa</h1>
+        <h1>{data.city}</h1>
         <div className="weather-data">
           <img src={data.icon} alt="temp-icon" />
           <h2>
