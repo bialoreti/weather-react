@@ -8,6 +8,7 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [data, setData] = useState({ready: false});
   const [loaded, setLoaded] = useState(false);
+  
 
   function displayWeather(response) {
     setLoaded(true);
@@ -18,6 +19,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
+      visibility: response.data.visibility,
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
 
@@ -27,10 +29,12 @@ export default function Weather(props) {
     event.preventDefault();
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3c949ba49d38be2487ee278e0d2d4059&units=metric`;
     axios.get(url).then(displayWeather);
+    
   }
 
   function updateCity(event) {
     setCity(event.target.value);
+    
   }
 
 
@@ -61,6 +65,7 @@ export default function Weather(props) {
   );
   if (loaded) {
     return (
+      
       <div className="Weather">
         {form}
         <h1>{data.city}</h1>
@@ -80,7 +85,7 @@ export default function Weather(props) {
         <div className="row">
           <div className="col">
             <ul className="weather-details">
-              <li>Precipitation: {Math.round(data.precipitation)}</li>
+              <li>Visibility: {Math.round(data.visibility)} m</li>
               <li>Wind: {Math.round(data.wind)} km/h</li>
               <li>Humidity: {Math.round(data.humidity)}%</li>
             </ul>
