@@ -3,16 +3,18 @@ import React, { useState } from "react";
 import "./Weather.css";
 import FormatDate from "./FormatDate";
 import "bootstrap/dist/css/bootstrap.css";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [data, setData] = useState({ready: false});
-  const [loaded, setLoaded] = useState(false);
+  
   
 
-  function displayWeather(response) {
-    setLoaded(true);
+  function displayWeather(response) { 
+
     setData({
+      ready: true,
       city: response.data.name,
       temperature: response.data.main.temp,
       date: new Date(response.data.dt * 1000),
@@ -24,6 +26,7 @@ export default function Weather(props) {
     });
 
   }
+  
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -63,23 +66,21 @@ export default function Weather(props) {
       </form>
     </div>
   );
-  if (loaded) {
+  if (data.ready) {
     return (
-      
       <div className="Weather">
         {form}
         <h1>{data.city}</h1>
         <div className="weather-data">
           <img src={data.icon} alt="temp-icon" />
           <h2>
-            <strong className="temperature">
-              {Math.round(data.temperature)}
-            </strong>
-            <strong className="unit">ºC</strong>
+            <WeatherTemperature celsius={data.temperature} />
           </h2>
         </div>
         <ul>
-          <li><FormatDate date={data.date} /></li>
+          <li>
+            <FormatDate date={data.date} />
+          </li>
           <li className="text-capitalize">{data.description}</li>
         </ul>
         <div className="row">
