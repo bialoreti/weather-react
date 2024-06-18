@@ -30,15 +30,19 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    search();
+    }
+
+    function updateCity(event) {
+      setCity(event.target.value);
+    }
+
+    function search() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3c949ba49d38be2487ee278e0d2d4059&units=metric`;
-    axios.get(url).then(displayWeather);
-    
+    axios.get(url).then(displayWeather);  
   }
 
-  function updateCity(event) {
-    setCity(event.target.value);
-    
-  }
+  
 
 
   let form = (
@@ -50,7 +54,6 @@ export default function Weather(props) {
               type="search"
               placeholder="type a city..."
               className="form-control"
-              autoFocus="on"
               autoComplete="on"
               onChange={updateCity}
             />
@@ -96,6 +99,7 @@ export default function Weather(props) {
     );
 
   } else {
+    search();
     return form;
   }
  

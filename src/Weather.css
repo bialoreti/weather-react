@@ -1,17 +1,27 @@
-.form-control {
-    border-radius:5px;
+input.form-control {
+    border-radius:0px;
+    background-color: transparent;
+    color: rgb(66, 66, 66);
+    border: none;
+  border-bottom: 2px solid white;  
+}
+ input.form-control:focus {
+    background-color: transparent;
+    box-shadow: none;
     border-color: white;
-    background-color: transparent;
-    color: gray;
-    
-}
+ }
+
 input.btn {
-    border-radius:5px;
-    color: white;
-    background-color: transparent;
-    border-color: white;   
-    
+    border-radius:20px;
+    color: #2d3654;
+    background-color: white;
+    border-color: white;     
 }
+
+input.btn:hover {
+    border-color: white;  
+}
+
 h1 {
     padding-top: 30px;
     padding-bottom: 15px;
