@@ -4,9 +4,33 @@ import "./Forecast.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function Forecast(props) {
-    const [loaded, setLoaded] = useState(false);
-    const [forecast, setForecast] = useState(null);
-    return (
-        <div></div>
-    )
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+
+     return (
+       <div className="WeatherForecast">
+         <div className="row">
+           <div className="col">
+            
+           </div>
+         </div>
+       </div>
+     );
+
+  } else { 
+  let longitude = props.coordinates.lon;
+  let latitude = props.coordinates.lat;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=3c949ba49d38be2487ee278e0d2d4059&units=metric`;
+  
+  axios.get(apiUrl).then(handleResponse);
+
+  return null;
+  }
 }

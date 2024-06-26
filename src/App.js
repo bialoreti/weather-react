@@ -1,5 +1,6 @@
 import React from "react";
 import Weather from "./Weather";
+import Forecast from "./Forecast";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -11,8 +12,7 @@ export default function App() {
           <Weather defaultCity="Lisboa" />
         </header>
       </div>
-      <div className="container-fluid shadow-sm">
-      </div>
+   
       <footer>
         <a href="https://github.com/bialoreti/weather-react">
           Open source code

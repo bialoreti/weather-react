@@ -4,6 +4,8 @@ import "./Weather.css";
 import FormatDate from "./FormatDate";
 import "bootstrap/dist/css/bootstrap.css";
 import WeatherTemperature from "./WeatherTemperature";
+import Forecast from "./Forecast";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -15,6 +17,7 @@ export default function Weather(props) {
 
     setData({
       ready: true,
+      coordinates: response.data.coord,
       city: response.data.name,
       temperature: response.data.main.temp,
       date: new Date(response.data.dt * 1000),
@@ -22,7 +25,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       visibility: response.data.visibility,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
 
   }
@@ -69,13 +72,14 @@ export default function Weather(props) {
       </form>
     </div>
   );
+  
   if (data.ready) {
     return (
       <div className="Weather">
         {form}
         <h1>{data.city}</h1>
         <div className="weather-data">
-          <img src={data.icon} alt="temp-icon" />
+          <WeatherIcon code={data.icon} />
           <h2>
             <WeatherTemperature celsius={data.temperature} />
           </h2>
@@ -94,6 +98,9 @@ export default function Weather(props) {
               <li>Humidity: {Math.round(data.humidity)}%</li>
             </ul>
           </div>
+        </div>
+        <div>
+          <Forecast coordinates={data.coordinates} />
         </div>
       </div>
     );
