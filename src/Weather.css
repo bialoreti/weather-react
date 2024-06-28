@@ -1,7 +1,7 @@
 input.form-control {
     border-radius:0px;
     background-color: transparent;
-    color: rgb(66, 66, 66);
+    color: #5668a4;
     border: none;
   border-bottom: 2px solid white;  
 }
@@ -13,7 +13,7 @@ input.form-control {
 
 input.btn {
     border-radius:20px;
-    color: #2d3654;
+    color: #5668a4;
     background-color: white;
     border-color: white;     
 }
@@ -46,5 +46,8 @@ h1 {
 .weather-details {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 20px;
+   
+}
+.details {
+    color: #5668a4;
 }

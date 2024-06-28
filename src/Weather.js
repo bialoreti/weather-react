@@ -93,9 +93,12 @@ export default function Weather(props) {
         <div className="row">
           <div className="col">
             <ul className="weather-details">
-              <li>Visibility: {Math.round(data.visibility)} m</li>
-              <li>Wind: {Math.round(data.wind)} km/h</li>
-              <li>Humidity: {Math.round(data.humidity)}%</li>
+              <li>
+                Visibility:<span className="details"> {Math.round(data.visibility)} m</span>
+              </li>
+              <li>Wind:<span className="details"> {Math.round(data.wind)} km/h</span></li>
+              <li>Humidity:<span className="details"> {Math.round(data.humidity)}%</span>
+              </li>
             </ul>
           </div>
         </div>
